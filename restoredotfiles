@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# DIRECTORIO DEL MONOREPO
+DOTFILES_DIR="$HOME/Documentos/Personales/dotfiles"
+HOME_DIR="$HOME"
+
+# LISTA DE DOTFILES A RESTAURAR
+DOTFILES=(
+    ".zshrc"
+    ".gitconfig"
+    ".gitconfig-damar"
+    ".tmux.conf"
+    ".config/ghostty/config.ghostty"
+    ".ssh/config"
+    ".local/bin/syncdotfiles"
+)
+
+# COMPROBAR QUE EL REPO EXISTE
+if [[ ! -d "$DOTFILES_DIR" ]]; then
+    echo "Error: No existe $DOTFILES_DIR"
+    exit 1
+fi
+
+# RESTAURAR CADA DOTFILE
+for file in "${DOTFILES[@]}"; do
+    SOURCE="$DOTFILES_DIR/$file"
+    DESTINATION="$HOME_DIR/$file"
+
+    if [[ ! -e "$SOURCE" && ! -L "$SOURCE" ]]; then
+        echo "Omitido: $file (No existe en el repo)"
+        continue
+    fi
+
+    mkdir -p "$(dirname "$DESTINATION")"
+
+    if [[ -d "$SOURCE" && ! -L "$SOURCE" ]]; then
+        mkdir -p "$DESTINATION"
+        rsync -a "$SOURCE/" "$DESTINATION/"
+    else
+        cp -a "$SOURCE" "$DESTINATION"
+    fi
+
+    echo "Restaurado: $file"
+done
+
+echo "Restauración completa."

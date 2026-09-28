@@ -1,0 +1,53 @@
+# ===========================
+# Fuente
+# ===========================
+font-family = Cascadia Code PL
+font-size = 11
+
+# Grosor de la fuente (opcional)
+font-thicken = true
+
+# ===========================
+# Apariencia
+# ===========================
+background-opacity = 0.90
+window-decoration = true
+
+# Tamaño de la ventana
+window-width = 125
+window-height = 40
+
+# Cursor
+cursor-style = block
+cursor-style-blink = true
+
+# ===========================
+# Scroll
+# ===========================
+scrollback-limit = 100000
+
+# ===========================
+# Copiar/Pegar
+# ===========================
+copy-on-select = clipboard
+
+# ===========================
+# Split Control
+# ===========================
+
+# Split Management
+# keybind = shift+%=new_split:right
+# keybind = shift+"=new_split:down
+
+# Split Navigation
+# keybind = alt+i=goto_split:up
+# keybind = alt+j=goto_split:left
+# keybind = alt+k=goto_split:down
+# keybind = alt+l=goto_split:right
+
+# Split Resize
+# keybind = ctrl+shift+i=resize_split:up,10
+# keybind = ctrl+shift+j=resize_split:left,10
+# keybind = ctrl+shift+k=resize_split:down,10
+# keybind = ctrl+shift+l=resize_split:right,10
+

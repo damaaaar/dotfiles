@@ -1,0 +1,8 @@
+[credential]
+	helper = store
+[user]
+	email = damartinez@swift-solutions.co
+	name = Daniel Martínez
+
+[includeIf "gitdir:~/Documentos/Personales/"]
+	path = ~/.gitconfig-damar
